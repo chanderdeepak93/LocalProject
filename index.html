@@ -9,30 +9,47 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
     overflow: hidden;
-    background: linear-gradient(120deg, #ff4e8b, #ff9a9e, #fad0c4);
-    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
     color: white;
+    text-align: center;
+}
+
+video.bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.45);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 h1 {
-    margin-top: 20%;
     font-size: 2.5rem;
     animation: fadeIn 2s ease-in-out;
 }
 
 p {
     font-size: 1.3rem;
-    width: 85%;
-    margin: auto;
+    max-width: 90%;
     animation: fadeIn 3s ease-in-out;
 }
 
 .rose {
-    font-size: 40px;
     position: absolute;
     top: -50px;
+    font-size: 35px;
     animation: fall linear infinite;
 }
 
@@ -45,44 +62,26 @@ p {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-button {
-    margin-top: 30px;
-    padding: 12px 25px;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    background: white;
-    color: #ff4e8b;
-    cursor: pointer;
-    animation: fadeIn 4s ease-in-out;
-}
-
-video {
-    display: none;
-    width: 90%;
-    border-radius: 20px;
-    margin-top: 20px;
-}
 </style>
 </head>
 
 <body>
 
-<h1>🌹 Happy Rose Day Monika 🌹</h1>
-<p>
-From the moment you came into my life, everything feels more beautiful.<br><br>
-You are my happiness, my peace, my smile after a long day.  
-Just like a rose, you make my world brighter and more special every single day.  
-<br><br>
-This rose is not just a flower… it carries my heart with it. ❤️
-</p>
-
-<button onclick="showVideo()">Tap for a Surprise 🎥</button>
-
-<video id="loveVideo" controls autoplay>
+<!-- Romantic Background Video -->
+<video class="bgVideo" autoplay muted loop>
     <source src="https://cdn.pixabay.com/video/2022/02/14/107033-681763024_tiny.mp4" type="video/mp4">
 </video>
+
+<div class="overlay">
+    <h1>🌹 Happy Rose Day Monika 🌹</h1>
+    <p>
+        From the moment you came into my life, everything feels more beautiful.<br><br>
+        You are my happiness, my peace, my smile after a long day.  
+        Just like a rose, you make my world brighter every single day.  
+        <br><br>
+        This rose carries my heart with it ❤️
+    </p>
+</div>
 
 <script>
 function createRose() {
@@ -92,18 +91,10 @@ function createRose() {
     rose.style.left = Math.random() * 100 + "vw";
     rose.style.animationDuration = (Math.random() * 3 + 2) + "s";
     document.body.appendChild(rose);
-
-    setTimeout(() => {
-        rose.remove();
-    }, 5000);
+    setTimeout(() => rose.remove(), 5000);
 }
-
 setInterval(createRose, 300);
-
-function showVideo() {
-    document.getElementById("loveVideo").style.display = "block";
-}
 </script>
 
 </body>
-</html>
+</html>>
