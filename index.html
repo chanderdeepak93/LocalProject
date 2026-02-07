@@ -72,19 +72,7 @@ p {
     <source sec="ba365efa-c346-4e59-b21b-ce7b236bc3eb.mp4" type="video/mp4">
 </video>
 
-<button onclick="playVideo()" style="
-position:absolute;
-bottom:40px;
-left:50%;
-transform:translateX(-50%);
-padding:12px 25px;
-border:none;
-border-radius:30px;
-font-size:18px;
-background:white;
-color:#ff4e8b;">
-▶ Tap for Sound 💖
-</button>
+
 
 <div class="overlay">
     <h1>🌹 Happy Rose Day My Love Monika 🌹</h1>
@@ -108,11 +96,7 @@ function createRose() {
     setTimeout(() => rose.remove(), 5000);
 }
 setInterval(createRose, 300);
-function playVideo() {
-    const video = document.getElementById("bgVideo");
-    video.play();
-    video.muted = false;
-}
+
 </script>
 
 </body>
