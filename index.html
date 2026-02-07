@@ -89,8 +89,22 @@ p {
         This rose carries my heart with it ❤️
     </p>
 </div>
+<button id="loveBtn" onclick="startLove()">💖 Tap to Start Surprise 💖</button>
 
 <script>
+function startLove() {
+    const video = document.getElementById("bgVideo");
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("loveBtn");
+
+    video.muted = false;
+    video.play().catch(()=>{});
+    music.play().catch(()=>{});
+
+    btn.style.display = "none";
+}
+
+
 function createRose() {
     const rose = document.createElement("div");
     rose.classList.add("rose");
